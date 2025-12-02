@@ -50,8 +50,8 @@ export default function App() {
             <Reveal className="relative w-full max-w-md" delay={150}>
               <div className="absolute -inset-4 rounded-2xl bg-brand-400/20 blur-xl" />
               <ImageWithFallback
-                src="/img1.png"
-                fallback="/vite.svg"
+                src={`${import.meta.env.BASE_URL}img1.png`}
+                fallback={`${import.meta.env.BASE_URL}vite.svg`}
                 alt="Robot LUMI junto a un cachorro"
                 className="relative rounded-2xl border border-slate-200 animate-float animate-glow object-cover w-full h-auto pro-tilt pro-shine"
               />
@@ -72,8 +72,8 @@ export default function App() {
           </div>
           <div className="hidden md:block">
             <ImageWithFallback
-              src="/img2.png"
-              fallback="/vite.svg"
+              src={`${import.meta.env.BASE_URL}img2.png`}
+              fallback={`${import.meta.env.BASE_URL}vite.svg`}
               alt="Interacción de holograma con LUMI"
               className="rounded-2xl border border-slate-200 w-full h-auto object-cover animate-fade-up pro-tilt pro-shine"
             />
@@ -135,8 +135,8 @@ export default function App() {
           </div>
           <div>
             <ImageWithFallback
-              src="/img3.png"
-              fallback="/vite.svg"
+              src={`${import.meta.env.BASE_URL}img3.png`}
+              fallback={`${import.meta.env.BASE_URL}vite.svg`}
               alt="Detalle de ruedas omni del robot"
               className="rounded-2xl border border-slate-200 w-full h-80 md:h-[420px] object-cover object-[50%_65%] animate-fade-up pro-tilt pro-shine"
             />
