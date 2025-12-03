@@ -155,19 +155,23 @@ export default function App() {
       </Section>
 
       <Section id="equipo" title="Equipo de desarrollo">
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div className="space-y-6">
           {team.map((m, i) => (
             <Reveal key={i} delay={i * 100}>
-              <div className="rounded-xl border border-slate-200 p-6 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
-                <ImageWithFallback
-                  src={m.photo}
-                  fallback={`${base}vite.svg`}
-                  alt={m.name}
-                  className="w-full h-48 object-cover rounded-lg mb-3 pro-tilt pro-shine"
-                />
-                <p className="text-lg font-semibold text-slate-900">{m.name}</p>
-                <p className="text-sm text-slate-600">{m.role}</p>
-                <p className="mt-3 text-slate-600">{m.bio}</p>
+              <div className="grid md:grid-cols-2 items-center gap-6 rounded-xl border border-slate-200 p-6 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+                <div className={`img-reveal rounded-2xl overflow-hidden ${i % 2 === 0 ? 'md:order-2 md:-mr-4 lg:-mr-4' : 'md:order-1 md:-ml-4 lg:-ml-4'}`}>
+                  <ImageWithFallback
+                    src={m.photo}
+                    fallback={`${base}vite.svg`}
+                    alt={m.name}
+                    className="w-full aspect-[4/3] object-contain rounded-2xl pro-tilt pro-shine"
+                  />
+                </div>
+                <div className={`${i % 2 === 0 ? 'md:order-1' : 'md:order-2'}`}>
+                  <p className="text-lg font-semibold text-slate-900">{m.name}</p>
+                  <p className="text-sm text-slate-600">{m.role}</p>
+                  <p className="mt-3 text-slate-600">{m.bio}</p>
+                </div>
               </div>
             </Reveal>
           ))}
