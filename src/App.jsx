@@ -14,6 +14,16 @@ function Section({ id, title, children }) {
 }
 
 export default function App() {
+  const base = import.meta.env.BASE_URL
+  const toUrl = (name) => base + encodeURIComponent(name)
+  const team = [
+    { photo: toUrl('Skyla (1).png'), name: 'Nombre 1', role: 'Rol', bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget.' },
+    { photo: toUrl('flor (1).png'), name: 'Nombre 2', role: 'Rol', bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget.' },
+    { photo: toUrl('morra 2 (1).png'), name: 'Nombre 3', role: 'Rol', bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget.' },
+    { photo: toUrl('morra x (1).png'), name: 'Nombre 4', role: 'Rol', bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget.' },
+    { photo: toUrl('persona2 (1).png'), name: 'Nombre 5', role: 'Rol', bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget.' },
+    { photo: toUrl('vato randomxd (1).png'), name: 'Nombre 6', role: 'Rol', bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget.' },
+  ]
   return (
     <div className="min-h-screen gradient-bg">
       <header className="px-4 md:px-8 lg:px-12 py-4 sticky top-0 bg-white/90 backdrop-blur border-b border-slate-200 z-50">
@@ -145,25 +155,22 @@ export default function App() {
       </Section>
 
       <Section id="equipo" title="Equipo de desarrollo">
-        <div className="grid md:grid-cols-3 gap-6">
-          <Reveal delay={0}>
-            <div className="rounded-xl border border-slate-200 p-6 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
-              <Users className="text-brand-400 mb-3" />
-              <p className="font-medium text-slate-800">Nombre 1 — Rol</p>
-            </div>
-          </Reveal>
-          <Reveal delay={100}>
-            <div className="rounded-xl border border-slate-200 p-6 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
-              <Users className="text-brand-400 mb-3" />
-              <p className="font-medium text-slate-800">Nombre 2 — Rol</p>
-            </div>
-          </Reveal>
-          <Reveal delay={200}>
-            <div className="rounded-xl border border-slate-200 p-6 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
-              <Users className="text-brand-400 mb-3" />
-              <p className="font-medium text-slate-800">Nombre 3 — Rol</p>
-            </div>
-          </Reveal>
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {team.map((m, i) => (
+            <Reveal key={i} delay={i * 100}>
+              <div className="rounded-xl border border-slate-200 p-6 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+                <ImageWithFallback
+                  src={m.photo}
+                  fallback={`${base}vite.svg`}
+                  alt={m.name}
+                  className="w-full h-48 object-cover rounded-lg mb-3 pro-tilt pro-shine"
+                />
+                <p className="text-lg font-semibold text-slate-900">{m.name}</p>
+                <p className="text-sm text-slate-600">{m.role}</p>
+                <p className="mt-3 text-slate-600">{m.bio}</p>
+              </div>
+            </Reveal>
+          ))}
         </div>
       </Section>
 
