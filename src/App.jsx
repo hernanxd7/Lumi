@@ -4,7 +4,7 @@ import ImageWithFallback from './components/ImageWithFallback.jsx'
 
 function Section({ id, title, children }) {
   return (
-    <section id={id} className="py-16 px-4 md:px-8 lg:px-12 text-slate-900 scroll-mt-24">
+    <section id={id} className="py-16 px-4 md:px-8 lg:px-12 text-slate-900 scroll-mt-24 content-auto">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-semibold mb-6 text-brand-600">{title}</h2>
         <div className="text-slate-600">{children}</div>
@@ -19,36 +19,42 @@ export default function App() {
   const team = [
     {
       photo: toUrl('Skyla (1).png'),
+      webp: toUrl('Skyla-_1_.webp'),
       name: 'Lic. Skyla Jaely López',
       role: 'Asistente de Investigación y Logística',
       bio: 'Apoya en la recolección de datos, gestión de participantes y organización logística del proyecto. 5 años en soporte de investigaciones de mercado en tecnología y bienestar animal. Licenciada en Administración de Empresas, con cursos en ética de investigación y uso de herramientas CRM.'
     },
     {
       photo: toUrl('flor (1).png'),
+      webp: toUrl('flor-_1_.webp'),
       name: 'Lic. Flor Laura Salinas Torres',
       role: 'Directora de Proyecto',
       bio: 'Lidera el proyecto, coordina al equipo y asegura el cumplimiento de objetivos y metodología. Más de 15 años en marketing e investigación para marcas tecnológicas y dispositivos inteligentes. Especialista en bienestar animal y consumo pet‑tech. Licenciada en Marketing y MBA en Estrategia Digital.'
     },
     {
       photo: toUrl('morra 2 (1).png'),
+      webp: toUrl('morra-2-_1_.webp'),
       name: 'Lic. Liliana González Saldaña',
       role: 'Asistente de Investigación y Logística',
       bio: 'Colabora en la gestión de participantes, apoyo operativo y control logístico del estudio. 5 años en asistencia para estudios de mercado en tecnología y bienestar animal. Licenciada en Administración de Empresas, con formación en ética de investigación y herramientas CRM.'
     },
     {
       photo: toUrl('morra x (1).png'),
+      webp: toUrl('morra-x-_1_.webp'),
       name: 'Lic. Dana Sayuri Basaldua Yañez',
       role: 'Analista de Datos',
       bio: 'Diseña y analiza encuestas, procesa datos estadísticos y desarrolla dashboards. 10 años de experiencia con SPSS, R y Tableau. Investigaciones en pet‑tech sobre adopción de gadgets para mascotas. Ingeniera en Estadística con certificaciones en Big Data y Machine Learning.'
     },
     {
       photo: toUrl('persona2 (1).png'),
+      webp: toUrl('persona2-_1_.webp'),
       name: 'Lic. Isai Villegas Prado',
       role: 'Investigador Cualitativo',
       bio: 'Realiza entrevistas, focus groups y análisis de comportamiento de dueños de mascotas. 8 años en investigación cualitativa centrada en psicología del consumidor y mercado de mascotas. Psicólogo con maestría en Comportamiento del Consumidor y experiencia en etnografía digital.'
     },
     {
       photo: toUrl('vato randomxd (1).png'),
+      webp: toUrl('vato-randomxd-_1_.webp'),
       name: 'Mtro. Jordy Tadeo López Guzmán',
       role: 'Investigador Cualitativo',
       bio: 'Conduce entrevistas y estudios cualitativos para identificar necesidades y percepciones sobre el robot. 8 años en investigación cualitativa en psicología del consumidor y servicios para mascotas. Psicólogo con maestría en Comportamiento del Consumidor y experiencia en etnografía digital.'
@@ -91,9 +97,12 @@ export default function App() {
               <div className="absolute -inset-4 rounded-2xl bg-brand-400/20 blur-xl" />
               <ImageWithFallback
                 src={`${import.meta.env.BASE_URL}img1.png`}
+                srcWebp={`${import.meta.env.BASE_URL}img1.webp`}
                 fallback={`${import.meta.env.BASE_URL}vite.svg`}
                 alt="Robot LUMI junto a un cachorro"
                 className="relative rounded-2xl border border-slate-200 animate-float animate-glow object-cover w-full h-auto pro-tilt pro-shine"
+                loading="eager"
+                fetchPriority="high"
               />
             </Reveal>
           </div>
@@ -113,9 +122,11 @@ export default function App() {
           <div className="hidden md:block">
             <ImageWithFallback
               src={`${import.meta.env.BASE_URL}img2.png`}
+              srcWebp={`${import.meta.env.BASE_URL}img2.webp`}
               fallback={`${import.meta.env.BASE_URL}vite.svg`}
               alt="Interacción de holograma con LUMI"
               className="rounded-2xl border border-slate-200 w-full h-auto object-cover animate-fade-up pro-tilt pro-shine"
+              fetchPriority="low"
             />
           </div>
         </div>
@@ -196,9 +207,11 @@ export default function App() {
           <div>
             <ImageWithFallback
               src={`${import.meta.env.BASE_URL}img3.png`}
+              srcWebp={`${import.meta.env.BASE_URL}img3.webp`}
               fallback={`${import.meta.env.BASE_URL}vite.svg`}
               alt="Detalle de ruedas omni del robot"
               className="rounded-2xl border border-slate-200 w-full h-80 md:h-[420px] object-cover object-[50%_65%] animate-fade-up pro-tilt pro-shine"
+              fetchPriority="low"
             />
           </div>
         </div>
@@ -212,9 +225,11 @@ export default function App() {
                 <div className={`img-reveal rounded-2xl overflow-hidden ${i % 2 === 0 ? 'md:order-2 md:-mr-4 lg:-mr-4' : 'md:order-1 md:-ml-4 lg:-ml-4'}`}>
                   <ImageWithFallback
                     src={m.photo}
+                    srcWebp={m.webp}
                     fallback={`${base}vite.svg`}
                     alt={m.name}
                     className="w-full aspect-[4/3] object-contain rounded-2xl pro-tilt pro-shine"
+                    fetchPriority="low"
                   />
                 </div>
                 <div className={`${i % 2 === 0 ? 'md:order-1' : 'md:order-2'}`}>
