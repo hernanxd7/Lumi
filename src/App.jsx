@@ -17,12 +17,42 @@ export default function App() {
   const base = import.meta.env.BASE_URL
   const toUrl = (name) => base + encodeURIComponent(name)
   const team = [
-    { photo: toUrl('Skyla (1).png'), name: 'Nombre 1', role: 'Rol', bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget.' },
-    { photo: toUrl('flor (1).png'), name: 'Nombre 2', role: 'Rol', bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget.' },
-    { photo: toUrl('morra 2 (1).png'), name: 'Nombre 3', role: 'Rol', bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget.' },
-    { photo: toUrl('morra x (1).png'), name: 'Nombre 4', role: 'Rol', bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget.' },
-    { photo: toUrl('persona2 (1).png'), name: 'Nombre 5', role: 'Rol', bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget.' },
-    { photo: toUrl('vato randomxd (1).png'), name: 'Nombre 6', role: 'Rol', bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget.' },
+    {
+      photo: toUrl('Skyla (1).png'),
+      name: 'Skyla Jaely López',
+      role: 'Asistente de Investigación y Logística',
+      bio: 'Apoya en la recolección de datos, gestión de participantes y organización logística del proyecto. 5 años en soporte de investigaciones de mercado en tecnología y bienestar animal. Licenciada en Administración de Empresas, con cursos en ética de investigación y uso de herramientas CRM.'
+    },
+    {
+      photo: toUrl('flor (1).png'),
+      name: 'Flor Laura Salinas Torres',
+      role: 'Directora de Proyecto',
+      bio: 'Lidera el proyecto, coordina al equipo y asegura el cumplimiento de objetivos y metodología. Más de 15 años en marketing e investigación para marcas tecnológicas y dispositivos inteligentes. Especialista en bienestar animal y consumo pet‑tech. Licenciada en Marketing y MBA en Estrategia Digital.'
+    },
+    {
+      photo: toUrl('morra 2 (1).png'),
+      name: 'Liliana González Saldaña',
+      role: 'Asistente de Investigación y Logística',
+      bio: 'Colabora en la gestión de participantes, apoyo operativo y control logístico del estudio. 5 años en asistencia para estudios de mercado en tecnología y bienestar animal. Licenciada en Administración de Empresas, con formación en ética de investigación y herramientas CRM.'
+    },
+    {
+      photo: toUrl('morra x (1).png'),
+      name: 'Dana Sayuri Basaldua Yañez',
+      role: 'Analista de Datos',
+      bio: 'Diseña y analiza encuestas, procesa datos estadísticos y desarrolla dashboards. 10 años de experiencia con SPSS, R y Tableau. Investigaciones en pet‑tech sobre adopción de gadgets para mascotas. Ingeniera en Estadística con certificaciones en Big Data y Machine Learning.'
+    },
+    {
+      photo: toUrl('persona2 (1).png'),
+      name: 'Isai Villegas Prado',
+      role: 'Investigador Cualitativo',
+      bio: 'Realiza entrevistas, focus groups y análisis de comportamiento de dueños de mascotas. 8 años en investigación cualitativa centrada en psicología del consumidor y mercado de mascotas. Psicólogo con maestría en Comportamiento del Consumidor y experiencia en etnografía digital.'
+    },
+    {
+      photo: toUrl('vato randomxd (1).png'),
+      name: 'Jordy Tadeo López Guzmán',
+      role: 'Investigador Cualitativo',
+      bio: 'Conduce entrevistas y estudios cualitativos para identificar necesidades y percepciones sobre el robot. 8 años en investigación cualitativa en psicología del consumidor y servicios para mascotas. Psicólogo con maestría en Comportamiento del Consumidor y experiencia en etnografía digital.'
+    },
   ]
   return (
     <div className="min-h-screen gradient-bg">
